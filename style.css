@@ -5,7 +5,7 @@
 }
 
 .container {
-    width: 960px;
+    width: 100%;
     margin: auto;
 }
 
@@ -24,10 +24,6 @@
     font-family: Arial;
 }
 
-.hearder-search {
-    margin-top: 25px;
-}
-
 .icons {
     display: flex;
     flex-wrap: wrap;
@@ -42,6 +38,10 @@
     background-color: #333333;
     border-radius: 50px;
     margin-right: 10px;
+}
+
+.hearder-search {
+    margin-top: 25px;
 }
 
 .search {
