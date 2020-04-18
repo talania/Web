@@ -184,6 +184,8 @@
   text-transform: uppercase;
   font-size: 16px;
   margin-top: 30px;
+  border-style: solid;
+  border: #3bafbe;
 }
 
 .slider-buttons {
@@ -250,6 +252,8 @@
   text-transform: uppercase;
   font-size: 13px;
   margin-bottom: 50px;
+  border-style: solid;
+  border: #3bafbe;
 }
 
 /*shout*/
