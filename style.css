@@ -152,15 +152,24 @@
 
 .slider-left {
   margin-left: 20px;
+}
+
+.monitor {
   background-image: url('images/monitor.png');
+  background-repeat: no-repeat;
+  flex-grow:1;
+  flex-shrink: 0;
   width: 401px;
   height: 321px;
-  background-repeat: no-repeat;
 }
 
 .slider-left img{
   margin-top: 18px;
   margin-left: 18px;
+}
+
+.slider-right {
+  margin-left: 50px;
 }
 
 .slider-right h2{
@@ -194,7 +203,7 @@
   display: flex;
   flex-direction: row;
   margin-right: 25px;
-  margin-top: 350px;
+  align-items: flex-end;
 }
 
 .slider-buttons div {

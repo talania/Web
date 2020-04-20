@@ -1,19 +1,26 @@
 /*responsive*/
 
 @media all and (max-width: 1024px) {
-  .search-items {
-    margin-right: 20px;
+  .footer-items {
+      margin-left: 20px;
+      margin-right: 20px;
   }
 
-  .slider-right {
-    margin-left: 200px;
-  }
-  .slider-left {
-    width: 470px;
+  .search-items {
+    margin-right: 20px;
   }
 }
 
 @media all and (max-width: 768px) {
+
+  .menu {
+    display: none;
+  }
+
+  .slider-right{
+    margin-top: 0px;
+    margin-left: 20px;
+  }
 
   .intro-items {
     grid-template-columns: repeat(2, 1fr);
@@ -25,14 +32,9 @@
 
   .footer-items {
     grid-template-columns: repeat(2,1fr);
+    margin-left: 40px;
   }
 
-  .slider-buttons {
-    display: none;
-  }
-  .menu {
-    display: none;
-  }
 }
 
 @media all and (max-width: 425px) {
@@ -45,10 +47,17 @@
   .header-right {
     margin-left: 20px;
     margin-top:20px;
+    margin-bottom: 0px;
   }
 
   .menu {
     display: none;
+  }
+
+  .slider-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .intro-items {
@@ -61,6 +70,32 @@
 
   .slider-items {
     flex-wrap: wrap;
+    align-items: center;
+    display: block;
+  }
+
+  .monitor {
+    background-image: url('images/monitor\ -\ small.png');
+    width: 300px;
+    height: 240px;
+  }
+
+  .monitor img {
+    width:250px;
+  }
+
+  .slider-left img{
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  
+  .slider-buttons {
+    display: flex;
+    justify-content: center;
+    margin-right: 0px;
+    margin-top:20px;
+    flex-grow: 1;
+    margin-bottom: 0px;
   }
 
   .service-items {
@@ -85,14 +120,74 @@
 
 @media all and (max-width: 375px) {
 
+  
+
   .shout h3 {
     width: 360px;
   }
+
+  .monitor {
+    background-image: url('images/monitor\ -\ small.png');
+    width: 300px;
+    height: 240px;
+  }
+
+  .monitor img {
+    width:250px;
+  }
+
+  .slider-left img{
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
 }
 
 @media all and (max-width: 320px) {
 
+  .search-items {
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-bottom: 0px;
+  }
+
+  .search {
+    margin-bottom: 10px;
+  }
+
   .shout h3 {
+    width: 280px;
+  }
+
+  .monitor {
+    background-image: url('images/monitor\ -\ small.png');
     width: 300px;
+    height: 240px;
+  }
+
+  .monitor img {
+    width:250px;
+  }
+
+  .slider-left img{
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .slider-items {
+    margin-bottom: 20px;
+  }
+
+  .service-items{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .service-item-text p{
+    width: 200px;
+  }
+
+  .copyright-left {
+    width: 200px;
   }
 }
