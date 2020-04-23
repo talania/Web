@@ -1,0 +1,31 @@
+.parent {
+    margin-top: 50px;
+}
+
+.parent div{
+    border-bottom: 1x black solid;
+}
+
+.search {
+    width: 250px;
+    background-color: #333333;
+    border-radius: 10px;
+    height: 35px;
+    border-style: solid;
+    color: white;
+    padding-left: 10px;
+}
+
+
+.button {
+    width: 70px;
+    background-color: rgb(80, 135, 218);
+    border-radius: 10px;
+    height: 35px;
+    border-style: solid;
+    color: white;
+}
+
+.form {
+    margin-top:20px;
+}

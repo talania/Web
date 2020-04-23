@@ -1,0 +1,52 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+
+    <input type="text" id="myInput" onkeyup="search()" placeholder="Type..">
+
+    <ul id="myUL"></ul>
+
+    <script>
+
+    fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits?fbclid=IwAR1__96Y6_r0LidQAITKQ7QMzPAtCkyCeiFTjwcUJXvNHen_jXhx8h6SVrM')
+      .then((response) => {
+        return response.json();
+      })
+      .then((list) => {
+        function create_div (text) {
+        let elem = document.createElement('li');
+        elem.innerText = text;
+        elem.className = "li";
+        let parent = document.getElementById("myUL");
+        parent.appendChild(elem);
+    };
+        console.log(list);
+        for(let i = 0; i<list.length; i++) {
+        create_div(list[i].commit.message);
+        console.log("test");
+        };
+      });
+
+        function search() {
+
+          var input, filter, ul, li, a, i, txtValue;
+          input = document.getElementById('myInput');
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName('li');
+        
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+        </script>
+    </body>
+</html>
