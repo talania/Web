@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giphy API Search</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <script src="script.js"></script>
+
+</head>
+
+<body>
+
+  <header><h1>Giphy API Example</h1></header>
+
+  <section class="buttonSection">
+  <div id="buttons" class="buttons">
+    <input type="button" class="tag" value="Internet Cats">
+    <input type="button" class="tag" value="Meme's">
+    <input type="button" class="tag" value="Typing">
+    <input type="button" class="tag" value="Space">
+    <input type="button" class="tag" value="Rick and Morty">
+  </div>
+</section>
+
+  <section class="searchSection">
+  <div class="search-bar">
+    <input type="text" id="user-search" class="search-bar-search">
+    <input id="submit" type="button" value="Submit" class="search-bar-submit" onclick="getSearchedGifs()">
+    <input type="button" class="search-bar-tranding" value="See what's trending" onclick="getTrendingGifs()">
+  </div>
+</section>
+  
+  <section class="gifSection">
+    <div id="gif-list" class="giflist"></div>
+  </section>
+    
+</body>
+</html>

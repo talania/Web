@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+    <input type="text" id="input">
+    <button type="submit" onclick="getInfo()">FILTER OUT</button>
+
+    <div id="gifs-list"></div>
+
+    <script>
+        class SearchGifs{
+            constructor(url,params) {
+                this.url = url;
+                this.params = params;
+            }
+
+            async fetchAndFilterCommits(){               
+                return fetch(this.url + new URLSearchParams(this.params))
+                .then((response) => {
+                  return response.json();
+                }).then((response) => {
+                    return response.data;
+                });
+            }      
+
+            async drawGif(){
+                const results = await this.fetchAndFilterCommits();
+                console.log(results);
+                document.getElementById("input").value = "";
+                results.map(current_element => {
+                    let div = document.createElement("div");
+                    div.innerHTML = "<img src=\"" + current_element.images.fixed_height_still.url + "\">";
+                    document.getElementById("gifs-list").append(div);
+                });
+
+            }      
+        }
+
+        async function getInfo(){
+            let query = document.getElementById("input").value;
+            let queryURL = "https://api.giphy.com/v1/gifs/search?";
+            let params = {
+            q: query,
+            limit: 10,
+            api_key: "aFFKTuSMjd6j0wwjpFCPXZipQbcnw3vB",
+            fmt: "json"
+            }
+            let gitElem = new SearchGifs(queryURL, params);
+            await gitElem.drawGif();
+        }
+
+    </script>
+
+</body>
+</html>
