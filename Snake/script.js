@@ -6,10 +6,12 @@ let PosX = 0;
 let PosY = 0;
 
 function moveSnake(elem) {
+    if(!board) board = document.getElementById('board');
+    if(!snake) snake = document.getElementById('snake');
     if(elem.keyCode == 40) {
         PosY += 10;
         snake.style.top = PosY + 'px';
-        if(PosY == board.offsetHeight-30){
+        if(PosY == board.offsetHeight-20){
             PosY = 0;
             rect.style.top = PosY + 'px';
         }
@@ -25,7 +27,7 @@ function moveSnake(elem) {
     if(elem.keyCode == 39) {
         PosX += 10;
         snake.style.left = PosX + 'px';
-        if(PosX == board.offsetWidth-30){
+        if(PosX == board.offsetWidth-20){
             PosX = 0;
             rect.style.left = PosX + 'px';
         }
