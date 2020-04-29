@@ -1,0 +1,40 @@
+.board-section{
+    display: flex;
+    justify-content: center;
+}
+
+#board{
+    height:450px;
+    width: 450px;
+    border: 10px solid #657;
+    position:relative;
+}
+
+.snake{
+    position: absolute;
+    height:8px;
+    width: 8px;
+    background-color: blue;
+    border:1px solid grey;
+}
+
+#apple{
+    position: absolute;
+    height:10px;
+    width: 10px;
+    background-color: red;
+    display: none;
+}
+
+#start {
+    color:white;
+    background-color: green;
+    border:0px;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 60px;
+    height: 30px;
+    margin-left:500px;
+    margin-top: 10px;
+}
+
