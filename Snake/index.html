@@ -8,12 +8,15 @@
 
     <section class="board-section">
         <div class="board" id="board">
-            <div id="snake"></div>
             <div id="apple"></div>
+            <div class="gameInformation">
+                <div class="scoreInformation"></div>
+                <div class="levelInformation"></div>
+            </div>
         </div>
     </section>
     <secton class = "buttons">
-        <input type="button" id = "start" onclick="appleCoordinates()" value="start">
+        <input type="button" id = "start" onclick="startGame()" value="start">
     </secton>
 
     <script src="script.js"></script>

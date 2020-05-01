@@ -10,14 +10,12 @@
     position:relative;
 }
 
-#snake{
+.snake{
     position: absolute;
     height:8px;
     width: 8px;
     background-color: blue;
     border:1px solid grey;
-    left:0px;
-    top:0px;
 }
 
 #apple{
@@ -39,4 +37,15 @@
     margin-left:500px;
     margin-top: 10px;
 }
+
+.gameInformation{
+    display:flex;
+    padding: 20px;
+    margin-top:400px;
+}
+
+.levelInformation {
+    margin-left:10px;
+}
+
 
