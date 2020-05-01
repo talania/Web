@@ -1,10 +1,33 @@
+/*Define Variables*/
+
 let board = document.getElementById('board');
 let apple = document.getElementById('apple');
 let start = document.getElementById('start');
-let PosX = 40;
-let PosY = 0;
-let snakeArray = [];
-let direction = 'right';
+let gameOverWindow = document.getElementById('gameOverWindow');
+let scoreResult = document.getElementById('scoreResult');
+let levelResult = document.getElementById('levelResult');
+let PosX;
+let PosY;
+let snakeArray;
+let direction;
+let score;
+let level;
+let interval;
+let indexInterval;
+
+/*Reset function - previous values of variables*/
+
+function reset() {
+    PosX = 40;
+    PosY = 0;
+    snakeArray = [];
+    direction = 'right';
+    score = 0;
+    level = 1;
+    indexInterval = 100;
+}
+
+/* Create each box for snake*/
 
 function createSnakeDiv(x,y) {
         let snakebody = document.createElement('div');
@@ -12,8 +35,13 @@ function createSnakeDiv(x,y) {
         board.appendChild(snakebody);
         snakebody.style.left = x + 'px';
         snakebody.style.top = y + 'px';
-        snakeArray.push(snakebody);
+        if(snakeArray[0] == undefined){
+            snakeArray[0] = snakebody;
+        } else snakeArray.push(snakebody);
     };
+
+
+/* Define keycodes for direction */
 
 document.addEventListener('keydown', function(e){
     if(e.keyCode == 37 && direction != 'right') {
@@ -29,9 +57,33 @@ document.addEventListener('keydown', function(e){
         direction = 'down';
     }
 }) 
+
+/*Define keycodes for arrow button direction */
+
+    up.addEventListener('click', function(e){
+        if(direction != 'down') {
+            direction = 'up';
+        }
+    });
+    down.addEventListener('click', function(e){
+        if(direction != 'up') {
+            direction = 'down';
+        }
+    });
+    left.addEventListener('click', function(e){
+        if(direction != 'right') {
+            direction = 'left';
+        }
+    });
+    right.addEventListener('click', function(e){
+        if(direction != 'left') {
+            direction = 'right';
+        }
+    });
     
-    
-function moveSnake(direction) {
+/* snake move function */
+
+function moveSnake() {
     let snake = snakeArray[snakeArray.length-1];
     switch(direction) {
         case 'down':
@@ -74,26 +126,31 @@ function moveSnake(direction) {
                     snake.style.top = PosY + 'px';
                 }
                 break;
-        }
+        }   
+        eatApple();
+        gameOver();
         snakeArray.splice(0, 0, snakeArray.splice(length-1,1)[0]);
     };
 
+
+    /* Function for eating apple and what should happen after this */
+
     function eatApple(){
-        if(snakebody[0].getAttribute['PosX'] == apple.getAttribute['PosX'] 
-        && snakebody[0].getAttribute['PosY'] == apple.getAttribute['PosY']) {
+        if(snakeArray[0].style.left == apple.style.left
+        && snakeArray[0].style.top == apple.style.top) {
             apple.style.display = 'none';
-            let x = snakebody[snakebody.length - 1].getAttribute['PosX'];
-            let y = snakebody[snakebody.length - 1].getAttribute['PosY'];
+            let x = PosX;
+            let y = PosY;
             createSnakeDiv(x,y);
             generateAppleCoordinates();
-            /* es sworad rogor unda ikos?
-            count++;
+            score++;
             level++;
-            interval++; */
+            indexInterval = indexInterval - 10;
+            gameInformation();
         }
     }
 
-    let interval = setInterval(moveSnake,300);
+    /*Generate random coordinates for apple*/
 
     function generateAppleCoordinates(){
         let x = Math.floor(Math.random() * 45)*10;
@@ -103,37 +160,48 @@ function moveSnake(direction) {
         apple.style.display = 'block';
     };
 
-    /*es ar ver mivxvdi rogor damewera*/
+    /*Define value and text for score and level lables*/
 
-    function gameOver() {
-        for(let i = 0; i<snakeArray.length-1; i++) {
-            if(snakebody[0] == snakebody[i]) {
-                alert('Game Over');
-                clearInterval.interval();
-                score = 0;
-                level = 0;
-            }
-        }
-    }
-
-    /*function gameInformation() {
-        let score = 0;
-        let level = 0;
+    function gameInformation() {
         let scoreInfromation = document.getElementById('scoreInformation');
         let levelInfromation = document.getElementById('levelInformation');
-        scoreInfromation.innerText = `Score${score}`;
-        levelInfromation.innerText = `Level${level}`;
-    }*/
+        scoreInfromation.innerText = 'Score: ' + score;
+        levelInfromation.innerText = 'Level: ' + level;
+    }
     
-    
+    /*Start game: create snake with 5 box and call functions*/
+
     function startGame() {
-        /*gameInformation();*/
+        reset();
+        gameInformation();
         for(let i=0; i<5; i++)  {
             let X = (4-i)*10;
             let Y = 0;
             createSnakeDiv(X,Y);
         }
         generateAppleCoordinates();
-        document.addEventListener('keydown',moveSnake);
+        interval = setInterval(moveSnake,indexInterval);
+        start.style.display = 'none';
+        gameOverWindow.style.display = 'none';
         };
     
+    /*Define what should happen when snake dies and when game is over*/
+        
+    function gameOver() {
+        for(let i = 1; i<snakeArray.length-1; i++) {
+            if(snakeArray[0].style.left == snakeArray[i].style.left &&
+                snakeArray[0].style.top == snakeArray[i].style.top) {
+                gameOverWindow.style.display = 'block';
+                scoreResult.innerText = score;
+                levelResult.innerText = level;
+                clearInterval(interval);
+                reset();
+                let clearSnakeArray = document.querySelectorAll('.snake');
+                for(let j = 0; j < clearSnakeArray.length; j++) {
+                    clearSnakeArray[j].style.display = 'none';
+                }
+                apple.style.display = 'none';
+                direction = 'right';
+            }
+        }
+    }

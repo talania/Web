@@ -1,0 +1,8 @@
+
+/*Responsive for showing move buttons*/
+
+@media all and (max-width: 768px) {
+    .moveButtons {
+        display: block;
+    }
+}

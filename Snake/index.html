@@ -1,23 +1,53 @@
 <!DOCTYPE html>
 <head>
+
     <title>Snake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
 
 </head>
+
 <body>
+
+    <!--Board for Game-->
 
     <section class="board-section">
         <div class="board" id="board">
             <div id="apple"></div>
             <div class="gameInformation">
-                <div class="scoreInformation"></div>
-                <div class="levelInformation"></div>
+                <div id="scoreInformation"></div>
+                <div id="levelInformation"></div>
             </div>
         </div>
     </section>
+
+    <!--Start Game Button-->
+
     <secton class = "buttons">
-        <input type="button" id = "start" onclick="startGame()" value="start">
+        <input type="button" id = "start" onclick="startGame()" value="Start">
     </secton>
+
+    <!--Game score and level information after game over and try again button-->
+
+    <section class="gameOver-section">
+        <div id="gameOverWindow">
+            <div class="scoreResult">Your score is: <span id="scoreResult"></span></div>
+            <div>Your level is: <span id="levelResult"></span></div>
+            <div><input type="button" id = "tryagain" onclick="startGame()" value="Try Again"></div>
+        </div>
+    </section>
+
+    <!--Buttons for move snake-->
+
+    <section class="moveButtons">
+        <input type="button" id="up" value="Up">
+        <input type="button" id="down" value="Down">
+        <input type="button" id="left" value="Left">      
+        <input type="button" id="right" value="Right">
+    </section>
+
+    <!--Insert javascript file-->
 
     <script src="script.js"></script>
 </body>

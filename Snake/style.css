@@ -1,3 +1,5 @@
+/* Game board styles */
+
 .board-section{
     display: flex;
     justify-content: center;
@@ -10,20 +12,37 @@
     position:relative;
 }
 
+/* Snake styles */
+
 .snake{
-    position: absolute;
+    position:absolute;
     height:8px;
     width: 8px;
     background-color: blue;
     border:1px solid grey;
 }
 
+/* Apple styles */
+
 #apple{
-    position: absolute;
+    position:absolute;
     height:10px;
     width: 10px;
     background-color: red;
     display: none;
+}
+
+/* Start button styles */
+
+.buttons {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    top:0;
+    left:0;
+    margin-top:225px;
+    width: 100%;
 }
 
 #start {
@@ -32,20 +51,97 @@
     border:0px;
     font-size: 14px;
     border-radius: 5px;
-    width: 60px;
+    width: 80px;
     height: 30px;
-    margin-left:500px;
-    margin-top: 10px;
+    cursor:pointer;
 }
+
+/* Game information styles - score and level lables */
 
 .gameInformation{
     display:flex;
-    padding: 20px;
-    margin-top:400px;
+    margin-top:435px;
+    color:red;
+    font-size:10px;
+    margin-left:5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.levelInformation {
-    margin-left:10px;
+#levelInformation {
+    margin-left: 30px;
 }
 
+.levelInfromation {
+    margin-left:100px;
+}
 
+/* Game over styles */
+
+.gameOver-section{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    top:0;
+    left:0;
+    margin-top:100px;
+    width: 100%;
+}
+
+#gameOverWindow {
+    background-image: url('gameover.png');
+    height: 199px;
+    width: 200px;
+	background-repeat:no-repeat;
+    display: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+    text-shadow: 2px 2px green;
+}
+
+.scoreResult{
+    margin-top: 100px;
+    margin-bottom:5px;
+    
+}
+
+#tryagain {
+    color:white;
+    background-color: green;
+    border:0px;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+    margin-top:5px;
+    cursor:pointer;
+}
+
+/* Move button styles */
+
+.moveButtons{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    top:0;
+    left:0;
+    width:100%;
+    margin-top:10px;
+    display: none;
+}
+
+.moveButtons input{
+    width: 50px;
+    height: 50px;
+    color:white;
+    background-color: green;
+    border:0px;
+    cursor:pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#right {
+    margin-right: 0px;
+}
