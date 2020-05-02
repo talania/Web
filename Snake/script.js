@@ -15,6 +15,7 @@ let score;
 let level;
 let interval;
 let indexInterval;
+let pressCount = 0;
 
 /*Reset function - previous values of variables*/
 
@@ -58,7 +59,7 @@ document.addEventListener('keydown', function(e){
         direction = 'down';
     }
     if(e.keyCode == 32) {
-        direction = 'pause';
+        direction = 'space';
     }
 }) 
 
@@ -130,6 +131,14 @@ function moveSnake() {
                     snake.style.top = PosY + 'px';
                 }
                 break;
+            case 'space':
+                pressCount++;
+                if(pressCount%2==1) {
+                    clearInterval(interval);
+                } else {
+                    interval = setInterval(moveSnake,indexInterval);
+                }
+                break;
         }   
         eatApple();
         gameOver();
@@ -190,7 +199,6 @@ function moveSnake() {
         spaceBar.style.display = 'block';
         };
 
-    
     /*Define what should happen when snake dies and when game is over*/
         
     function gameOver() {
