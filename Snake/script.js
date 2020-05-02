@@ -3,9 +3,10 @@
 let board = document.getElementById('board');
 let apple = document.getElementById('apple');
 let start = document.getElementById('start');
-let gameOverWindow = document.getElementById('gameOverWindow');
-let scoreResult = document.getElementById('scoreResult');
-let levelResult = document.getElementById('levelResult');
+let gameOverWindow = document.getElementById('game-over-window');
+let scoreResult = document.getElementById('score-result');
+let levelResult = document.getElementById('level-result');
+let spaceBar = document.getElementById('spacebar');
 let PosX;
 let PosY;
 let snakeArray;
@@ -56,30 +57,33 @@ document.addEventListener('keydown', function(e){
     if(e.keyCode == 40 && direction != 'up') {
         direction = 'down';
     }
+    if(e.keyCode == 32) {
+        direction = 'pause';
+    }
 }) 
 
 /*Define keycodes for arrow button direction */
 
-    up.addEventListener('click', function(e){
-        if(direction != 'down') {
-            direction = 'up';
-        }
+up.addEventListener('click', function(e){
+    if(direction != 'down') {
+        direction = 'up';
+    }
+});
+down.addEventListener('click', function(e){
+    if(direction != 'up') {
+        direction = 'down';
+    }
     });
-    down.addEventListener('click', function(e){
-        if(direction != 'up') {
-            direction = 'down';
-        }
-    });
-    left.addEventListener('click', function(e){
-        if(direction != 'right') {
-            direction = 'left';
-        }
-    });
-    right.addEventListener('click', function(e){
-        if(direction != 'left') {
-            direction = 'right';
-        }
-    });
+left.addEventListener('click', function(e){
+    if(direction != 'right') {
+        direction = 'left';
+    }
+});
+right.addEventListener('click', function(e){
+    if(direction != 'left') {
+        direction = 'right';
+    }
+});
     
 /* snake move function */
 
@@ -163,8 +167,8 @@ function moveSnake() {
     /*Define value and text for score and level lables*/
 
     function gameInformation() {
-        let scoreInfromation = document.getElementById('scoreInformation');
-        let levelInfromation = document.getElementById('levelInformation');
+        let scoreInfromation = document.getElementById('score-information');
+        let levelInfromation = document.getElementById('level-information');
         scoreInfromation.innerText = 'Score: ' + score;
         levelInfromation.innerText = 'Level: ' + level;
     }
@@ -183,7 +187,9 @@ function moveSnake() {
         interval = setInterval(moveSnake,indexInterval);
         start.style.display = 'none';
         gameOverWindow.style.display = 'none';
+        spaceBar.style.display = 'block';
         };
+
     
     /*Define what should happen when snake dies and when game is over*/
         

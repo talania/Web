@@ -34,7 +34,7 @@
 
 /* Start button styles */
 
-.buttons {
+.buttons-section {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -56,28 +56,44 @@
     cursor:pointer;
 }
 
+/* Pause/resume information text */
+
+#spacebar{
+    right:0;
+}
+
 /* Game information styles - score and level lables */
 
-.gameInformation{
+.game-information{
     display:flex;
+    justify-content: space-between;
     margin-top:435px;
     color:red;
     font-size:10px;
-    margin-left:5px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#levelInformation {
+.left-game-information {
+    margin-left:5px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.right-game-information {
+    margin-right:5px;
+}
+
+#level-information {
     margin-left: 30px;
 }
 
-.levelInfromation {
-    margin-left:100px;
+#spacebar {
+    display: none;
 }
 
 /* Game over styles */
 
-.gameOver-section{
+.game-over-section{
     position: absolute;
     display: flex;
     justify-content: center;
@@ -88,8 +104,8 @@
     width: 100%;
 }
 
-#gameOverWindow {
-    background-image: url('gameover.png');
+#game-over-window {
+    background-image: url('img/gameover.png');
     height: 199px;
     width: 200px;
 	background-repeat:no-repeat;
@@ -99,7 +115,7 @@
     text-shadow: 2px 2px green;
 }
 
-.scoreResult{
+.score-result{
     margin-top: 100px;
     margin-bottom:5px;
     
@@ -119,7 +135,7 @@
 
 /* Move button styles */
 
-.moveButtons{
+.move-buttons{
     display: flex;
     justify-content: center;
     text-align: center;
@@ -130,7 +146,7 @@
     display: none;
 }
 
-.moveButtons input{
+.move-buttons input{
     width: 50px;
     height: 50px;
     color:white;

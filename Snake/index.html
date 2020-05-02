@@ -15,32 +15,37 @@
     <section class="board-section">
         <div class="board" id="board">
             <div id="apple"></div>
-            <div class="gameInformation">
-                <div id="scoreInformation"></div>
-                <div id="levelInformation"></div>
+            <div class="game-information">
+                <div class="left-game-information">
+                    <div id="score-information"></div>
+                    <div id="level-information"></div>
+                </div>
+                <div class="right-game-information">
+                    <div id="spacebar">Press spacebar for pause/resume game</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!--Start Game Button-->
 
-    <secton class = "buttons">
+    <secton class = "buttons-section">
         <input type="button" id = "start" onclick="startGame()" value="Start">
     </secton>
 
     <!--Game score and level information after game over and try again button-->
 
-    <section class="gameOver-section">
-        <div id="gameOverWindow">
-            <div class="scoreResult">Your score is: <span id="scoreResult"></span></div>
-            <div>Your level is: <span id="levelResult"></span></div>
+    <section class="game-over-section">
+        <div id="game-over-window">
+            <div class="score-result">Your score is: <span id="score-result"></span></div>
+            <div>Your level is: <span id="level-result"></span></div>
             <div><input type="button" id = "tryagain" onclick="startGame()" value="Try Again"></div>
         </div>
     </section>
 
     <!--Buttons for move snake-->
 
-    <section class="moveButtons">
+    <section class="move-buttons">
         <input type="button" id="up" value="Up">
         <input type="button" id="down" value="Down">
         <input type="button" id="left" value="Left">      
