@@ -5,4 +5,7 @@
     .move-buttons {
         display: block;
     }
+    #spacebar{
+        display: none;
+    }
 }

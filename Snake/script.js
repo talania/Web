@@ -59,7 +59,12 @@ document.addEventListener('keydown', function(e){
         direction = 'down';
     }
     if(e.keyCode == 32) {
-        direction = 'space';
+        pressCount++;
+        if(pressCount%2==1) {
+            clearInterval(interval);
+        } else {
+            interval = setInterval(moveSnake,indexInterval);
+        }
     }
 }) 
 
@@ -130,15 +135,7 @@ function moveSnake() {
                     snake.style.left = PosX + 'px';
                     snake.style.top = PosY + 'px';
                 }
-                break;
-            case 'space':
-                pressCount++;
-                if(pressCount%2==1) {
-                    clearInterval(interval);
-                } else {
-                    interval = setInterval(moveSnake,indexInterval);
-                }
-                break;
+                break;                
         }   
         eatApple();
         gameOver();
